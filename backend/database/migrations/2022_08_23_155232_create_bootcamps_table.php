@@ -17,9 +17,11 @@ return new class extends Migration
             $table->id();
             $table->string('name',100);
             $table->text('description');
-            $table->foreignId('website',200)->nullable;
-            $table->string('enro',50);
+            $table->string('website',200)->nullable();
             $table->string('phone',50);
+            $table->float('average_rating',2,2)->default(1);
+            $table->decimal('average_cots',$precision = 8, $cale= 2)->default(0);
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
